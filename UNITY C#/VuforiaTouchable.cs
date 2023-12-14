@@ -6,31 +6,34 @@ using NativeWebSocket;
 
 public class VuforiaTouchable : MonoBehaviour
 {
-    public string hideableTag = "HideableModel";
-    private bool isObjectsHidden = false;
-    private List<GameObject> hiddenObjects = new List<GameObject>();
+    public string hideableTag = "HideableModel"; // Tag for objects that can be hidden
+    private bool isObjectsHidden = false; // Tracks the visibility state of objects
+    private List<GameObject> hiddenObjects = new List<GameObject>(); // List to store hidden objects
 
-    private WebSocket webSocket;
-    public string webSocketServerUrl = "ws://10.129.125.175:81"; // WebSocket服务器地址
-    public string cityName; // 与建筑物关联的城市名称
+    private WebSocket webSocket; // WebSocket variable
+    public string webSocketServerUrl = "ws://10.129.125.175:81"; // URL of the WebSocket server
+    public string cityName; // City name associated with the building
 
     async void Start()
     {
-        // 初始化WebSocket连接
+        // Initialize WebSocket connection
         webSocket = new WebSocket(webSocketServerUrl);
         await webSocket.Connect();
     }
 
     void Update()
     {
+        // Check for touch input
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             Touch touch = Input.GetTouch(0);
             Ray ray = Camera.main.ScreenPointToRay(touch.position);
             RaycastHit hit;
 
+            // Raycast to check if the building model is touched
             if (Physics.Raycast(ray, out hit) && hit.transform == transform)
             {
+                // Toggle object visibility
                 if (isObjectsHidden)
                 {
                     ShowObjects();
@@ -38,13 +41,14 @@ public class VuforiaTouchable : MonoBehaviour
                 else
                 {
                     HideObjects();
-                    SendCityNameToESP8266(); // 直接调用发送方法
+                    SendCityNameToESP8266(); // Call method to send city name
                 }
                 isObjectsHidden = !isObjectsHidden;
             }
         }
     }
 
+    // Method to hide objects
     void HideObjects()
     {
         var allObjects = GameObject.FindGameObjectsWithTag(hideableTag);
@@ -58,6 +62,7 @@ public class VuforiaTouchable : MonoBehaviour
         }
     }
 
+    // Method to show objects
     void ShowObjects()
     {
         foreach (var obj in hiddenObjects)
@@ -67,6 +72,7 @@ public class VuforiaTouchable : MonoBehaviour
         hiddenObjects.Clear();
     }
 
+    // Method to send city name to ESP8266
     async void SendCityNameToESP8266()
     {
         Debug.Log("Attempting to send city name to ESP8266");
@@ -89,6 +95,7 @@ public class VuforiaTouchable : MonoBehaviour
         }
     }
 
+    // Cleanup on destruction
     private async void OnDestroy()
     {
         if (webSocket != null)
