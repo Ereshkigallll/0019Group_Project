@@ -8,7 +8,7 @@ public class WebSocketClient : MonoBehaviour
 
     async void Start()
     {
-        // 创建WebSocket实例并连接到ESP8266的WebSocket服务器
+        //Create a WebSocket instance and connect to the ESP8266's WebSocket server
         websocket = new WebSocket("ws://192.168.1.112:81");
 
         websocket.OnOpen += () =>
@@ -36,7 +36,7 @@ public class WebSocketClient : MonoBehaviour
         #endif
     }
 
-    // 调用此方法来发送按钮上的文字到ESP8266
+    // Call this method to send the text on the button to ESP8266
     public async void SendMessageToESP(string message)
     {
         if (websocket.State == WebSocketState.Open)
