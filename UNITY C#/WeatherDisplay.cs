@@ -36,19 +36,19 @@ public class WeatherDisplay : MonoBehaviour
             string weatherInfo = "";
             if (showAQI)
             {
-                weatherInfo += $"AQI: {weatherData.data.aqi}"; // 替换“(单位)”为AQI的单位
+                weatherInfo += $"AQI: {weatherData.data.aqi}"; // Replace "(unit)" with the unit for AQI
             }
             if (showPM25)
             {
-                weatherInfo += $" PM2.5: {weatherData.data.iaqi.pm25.v} µg/m³"; // 微克每立方米
+                weatherInfo += $" PM2.5: {weatherData.data.iaqi.pm25.v} µg/m³"; // Micrograms per cubic meter
             }
             if (showPM10)
             {
-                weatherInfo += $" PM10: {weatherData.data.iaqi.pm10.v} µg/m³"; // 微克每立方米
+                weatherInfo += $" PM10: {weatherData.data.iaqi.pm10.v} µg/m³"; // Micrograms per cubic meter
             }
             if (showNO2)
             {
-                weatherInfo += $" NO2: {weatherData.data.iaqi.no2.v} ppm"; // 部分每百万
+                weatherInfo += $" NO2: {weatherData.data.iaqi.no2.v} ppm"; // Parts per million
             }
 
             // Update the UI text with the constructed information
