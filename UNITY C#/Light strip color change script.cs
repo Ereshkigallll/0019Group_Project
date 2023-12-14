@@ -21,7 +21,7 @@ public class LightBar : MonoBehaviour
     else if (aqi <= 150) return new Color(241/255f, 158/255f, 74/255f);
     else if (aqi <= 200) return new Color(187/255f, 39/255f, 56/255f);
     else if (aqi <= 300) return new Color(93/255f, 14/255f, 147/255f);
-    else return new Color(115/255f, 20/255f, 37/255f); // 默认为最高的AQI级别
+    else return new Color(115/255f, 20/255f, 37/255f); // Default is the highest AQI level
     }
 }
 
