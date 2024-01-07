@@ -38,6 +38,8 @@ Let's start!! :tada: :tada: :tada:
 
 ### 3.3 `02_Unity_file`
 
+Due to Github restrictions, the full Unity files, which contains the complete configuration file as well as the code. can be found [here](https://drive.google.com/file/d/1IlSQ94-pa_CAHy0EGBwvVm23tg4M9ehm/view?usp=sharing).
+
 #### 3.3.1 `AirQualityAPIClient.cs`
 This document is primarily used to get air quality information from [this site](https://aqicn.org)'s API in Unity.
 
@@ -81,3 +83,9 @@ Some of the images used for this Read me file, please just ignore them.
 The following diagram shows the circuit connections for this project and can be used for reference when assembling the circuit.
 
 ![circuit](https://github.com/Ereshkigallll/0019Group_Project/blob/main/03_Readme_pic/circuit.png)
+
+## 5. Possible Further Improvemnt
+
+In the future, we will consider redesigning the enclosure of the physical device to ensure that it is aesthetically pleasing as well as easy to use, for example by adding a stand. In addition to this, we will also redesign the map, for example by adding more cities and redesigning the typography. In addition to this, the beautification of the mobile app will also take place.
+
+Thank you for reading and using!
