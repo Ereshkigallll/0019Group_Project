@@ -45,3 +45,5 @@ This document is primarily used to get air quality information from [this site](
 
 #### 3.3.2 `BuildingController.cs`
 This script is mainly used to control the appearance and disappearance of small spheres and buttons on the side of the building model that are used to display air quality information. When no city is selected, the spheres and buttons are hidden by default. When the user clicks on a landmark, the spheres and buttons for that city will appear. At the same time, the values of the corresponding air quality components will appear on the spheres. 
+
+![Balls and buttons](https://github.com/Ereshkigallll/0019Group_Project/blob/main/03_Readme_pic/balls.jpg)
