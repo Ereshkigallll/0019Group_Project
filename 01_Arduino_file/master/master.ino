@@ -13,10 +13,10 @@ int TX = 2;  // Example: D6 pin
 SoftwareSerial mySerial(RX, TX);
 
 // WiFi settings
-const char* ssid = "CE-Hub-Student";
-const char* password = "casa-ce-gagarin-public-service";
+const char* ssid = "Your WiFi name";
+const char* password = "Your WiFi password";
 
-const char* apiToken = "200950623fa417ec39096a0a6c9805283019c380";
+const char* apiToken = "Your API token here";
 
 // WebSocket server
 WebSocketsServer webSocket = WebSocketsServer(81);

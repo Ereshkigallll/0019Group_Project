@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 
-// 数据模型类
+// Data model class for the air quality response
 [System.Serializable]
 public class AirQualityResponse
 {
@@ -11,6 +11,7 @@ public class AirQualityResponse
     public AirQualityData data;
 }
 
+// Data model class for the air quality data
 [System.Serializable]
 public class AirQualityData
 {
@@ -25,6 +26,7 @@ public class AirQualityData
     public DebugInfo debug;
 }
 
+// Class representing attribution information
 [System.Serializable]
 public class Attribution
 {
@@ -33,6 +35,7 @@ public class Attribution
     public string logo;
 }
 
+// Class representing city information
 [System.Serializable]
 public class City
 {
@@ -42,6 +45,7 @@ public class City
     public string location;
 }
 
+// Class representing individual air quality indices
 [System.Serializable]
 public class IAQI
 {
@@ -57,12 +61,14 @@ public class IAQI
     public AQIValue w;
 }
 
+// Class for a single air quality index value
 [System.Serializable]
 public class AQIValue
 {
     public float v;
 }
 
+// Class representing air quality time information
 [System.Serializable]
 public class AirQualityTime
 {
@@ -72,12 +78,14 @@ public class AirQualityTime
     public string iso;
 }
 
+// Class representing forecast information
 [System.Serializable]
 public class Forecast
 {
     public DailyForecast daily;
 }
 
+// Class for daily forecast data
 [System.Serializable]
 public class DailyForecast
 {
@@ -87,6 +95,7 @@ public class DailyForecast
     public ForecastItem[] uvi;
 }
 
+// Class for individual forecast items
 [System.Serializable]
 public class ForecastItem
 {
@@ -96,26 +105,29 @@ public class ForecastItem
     public int min;
 }
 
+// Class for debug information
 [System.Serializable]
 public class DebugInfo
 {
     public string sync;
 }
 
-// API客户端
+// API client for fetching air quality data
 public class AirQualityAPIClient : MonoBehaviour
 {
-    private static  readonly string baseURL = "https://api.waqi.info/feed/";
-    private static readonly string token = "3f944813adceac55004626fbea5143afdd666e42"; 
+    private static readonly string baseURL = "https://api.waqi.info/feed/";
+    private static readonly string token = "Your token here"; // Replace with your actual token
 
+    // Coroutine to get weather data for a specific city
     public static IEnumerator GetWeatherDataForCity(string city, Action<AirQualityResponse> callback)
     {
         string url = $"{baseURL}{city}/?token={token}";
- Debug.Log($"[AirQualityAPIClient] Requesting data for {city}.");
+        Debug.Log($"[AirQualityAPIClient] Requesting data for {city}.");
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
             yield return request.SendWebRequest();
 
+            // Check for network or HTTP errors
             if (request.isNetworkError || request.isHttpError)
             {
                 Debug.LogError(request.error);
@@ -124,6 +136,7 @@ public class AirQualityAPIClient : MonoBehaviour
             {
                 try
                 {
+                    // Parse the response and invoke the callback with the parsed data
                     string jsonString = request.downloadHandler.text;
                     Debug.Log($"[AirQualityAPIClient] Response from {city}: {jsonString}");
                     AirQualityResponse response = JsonUtility.FromJson<AirQualityResponse>(jsonString);
@@ -131,6 +144,7 @@ public class AirQualityAPIClient : MonoBehaviour
                 }
                 catch (Exception e)
                 {
+                    // Handle any exceptions during parsing
                     Debug.LogError("Exception parsing response: " + e.Message);
                 }
             }

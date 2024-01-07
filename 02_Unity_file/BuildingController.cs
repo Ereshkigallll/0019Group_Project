@@ -2,44 +2,45 @@ using UnityEngine;
 
 public class BuildingController : MonoBehaviour
 {
-    // 公共数组，用于在Inspector中添加小球对象
+    // Public array to add ball objects in the Inspector
     public GameObject[] balls;
 
-    // 用于跟踪小球是否正在显示
+    // Variable to track whether the balls are currently visible
     private bool areBallsVisible = false;
 
     void Start()
     {
-        // 初始化时隐藏所有小球
+        // Hide all balls on initialization
         ToggleBallsVisibility(false);
     }
 
     void Update()
     {
-        // 检测屏幕触摸输入
+        // Check for touch input on the screen
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            // 从触摸位置发射一条射线
+            // Cast a ray from the touch position
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
             RaycastHit hit;
 
-            // 检测射线是否击中了此游戏对象
+            // Check if the ray hits this game object
             if (Physics.Raycast(ray, out hit) && hit.transform == transform)
             {
-                // 切换小球的显示状态
+                // Toggle the visibility state of the balls
                 areBallsVisible = !areBallsVisible;
                 ToggleBallsVisibility(areBallsVisible);
             }
         }
     }
 
-    // 切换小球的显示和隐藏
+    // Function to toggle the visibility of the balls
     private void ToggleBallsVisibility(bool isVisible)
     {
         foreach (var ball in balls)
         {
             if (ball != null)
             {
+                // Set the ball's active state to the isVisible parameter
                 ball.SetActive(isVisible);
             }
         }
