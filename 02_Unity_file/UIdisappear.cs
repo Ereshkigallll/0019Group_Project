@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class UIdisappear : MonoBehaviour
 {
-    public GameObject uiElement; // UI元素的引用
+    public GameObject uiElement; // Reference to the UI element
 
     void Start()
     {
-        // 开始计时器协程
-        StartCoroutine(HideUIAfterTime(5)); // 10秒后隐藏UI
+        // Start the coroutine to hide the UI
+        StartCoroutine(HideUIAfterTime(5)); // Hide the UI after 5 seconds
     }
 
     IEnumerator HideUIAfterTime(float time)
     {
-        yield return new WaitForSeconds(time); // 等待指定的时间
-        uiElement.SetActive(false); // 隐藏UI元素
+        yield return new WaitForSeconds(time); // Wait for the specified amount of time
+        uiElement.SetActive(false); // Hide the UI element
     }
 }

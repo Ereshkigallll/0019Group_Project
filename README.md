@@ -47,3 +47,15 @@ This document is primarily used to get air quality information from [this site](
 This script is mainly used to control the appearance and disappearance of small spheres and buttons on the side of the building model that are used to display air quality information. When no city is selected, the spheres and buttons are hidden by default. When the user clicks on a landmark, the spheres and buttons for that city will appear. At the same time, the values of the corresponding air quality components will appear on the spheres. 
 
 ![Balls and buttons](https://github.com/Ereshkigallll/0019Group_Project/blob/main/03_Readme_pic/balls.jpg)
+
+#### 3.3.3 `UIdisappear.cs`
+
+This script is used to control the display and disappearance of the guiding statement on the screen after the app has finished initialising. In subsequent revisions, we will consider changing the control of disappearance by time to disappear after scanning the map.
+
+#### 3.3.4 `VuforiaTouchable.cs`
+
+This script is mainly used to control the appearance and disappearance of models and to send messages to the ESP8266 via web socket. When the user touches the landmark model of a city, the rest of the cities will disappear and the name of the city will be sent to ESP8266. When the user touches the model again, the rest of the hidden models will appear.
+
+#### 3.3.5 `WeatherDisplay.cs`
+
+This script is mainly used to display the data retrieved from the API on the specified TextMeshPro component. This script allows the user to select the targets, cities and air quality components to be displayed. All you need to do is change the city you want to display to cityName in Unity and tick the name of the component you want to display below.
