@@ -77,3 +77,7 @@ This script mainly implements the function of establishing and managing WebSocke
 Some of the images used for this Read me file, please just ignore them.
 
 ## 4. Circuit Connections
+
+The following diagram shows the circuit connections for this project and can be used for reference when assembling the circuit.
+
+![circuit](https://github.com/Ereshkigallll/0019Group_Project/blob/main/03_Readme_pic/circuit.png)
