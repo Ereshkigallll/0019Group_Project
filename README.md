@@ -59,3 +59,7 @@ This script is mainly used to control the appearance and disappearance of models
 #### 3.3.5 `WeatherDisplay.cs`
 
 This script is mainly used to display the data retrieved from the API on the specified TextMeshPro component. This script allows the user to select the targets, cities and air quality components to be displayed. All you need to do is change the city you want to display to cityName in Unity and tick the name of the component you want to display below.
+
+The detailed interface can be seen in the following screenshot.
+
+![weather display](https://github.com/Ereshkigallll/0019Group_Project/blob/main/03_Readme_pic/weather.png)
