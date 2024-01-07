@@ -63,3 +63,17 @@ This script is mainly used to display the data retrieved from the API on the spe
 The detailed interface can be seen in the following screenshot.
 
 ![weather display](https://github.com/Ereshkigallll/0019Group_Project/blob/main/03_Readme_pic/weather.png)
+
+#### 3.3.6 `WeatherService.cs`
+
+This script is mainly used to get data from the API, and at the same time will get all the data stored in the buffer and printed out for debugging.
+
+#### 3.3.7 `WebSocketClient.cs`
+
+This script mainly implements the function of establishing and managing WebSocket connections with the ESP8266's WebSocket server in Unity.
+
+### 3.4 `03_Readme_pic`
+
+Some of the images used for this Read me file, please just ignore them.
+
+## 4. Circuit Connections
